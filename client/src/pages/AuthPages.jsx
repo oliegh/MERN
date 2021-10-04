@@ -17,6 +17,10 @@ export default () => {
     clearError()
   }, [error, message, clearError])
 
+  useEffect(() => {
+    window.M.updateTextFields()
+  })
+
   const changeHandler = event => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
@@ -49,6 +53,7 @@ export default () => {
                   id="email" 
                   type="text" 
                   name="email"
+                  value={form.email}
                   onChange={changeHandler}
                 />
                 <label htmlFor="email">Email</label>
@@ -59,6 +64,7 @@ export default () => {
                   id="password" 
                   type="password" 
                   name="password"
+                  value={form.password}
                   onChange={changeHandler}
                 />
                 <label htmlFor="password">Пароль</label>
